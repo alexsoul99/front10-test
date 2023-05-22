@@ -1,3 +1,3 @@
-# Fligths Booking Component
+# Flights Booking Component
 
-## Developed as a technical test for the company Front10
+## Developed as a technical test fot the Front10 company
