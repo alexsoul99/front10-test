@@ -1,3 +1,3 @@
-# Booking Fligths Component
+# Fligths Booking Component
 
-## developed as a technical test for the company Front10
+## Developed as a technical test for the company Front10
