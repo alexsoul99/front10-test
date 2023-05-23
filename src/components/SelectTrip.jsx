@@ -6,7 +6,6 @@ export default function SelectTrip({ tripsArr }) {
 	const [showDropdown, setShowDropdown] = useState(false)
 	const { setTripType } = useContext(TripTypeContext)
 	const [selected, setSelected] = useState(tripsArr[0])
-	// const ulRef = useRef()
 
 	return (
 		<div

@@ -3,6 +3,7 @@ import Calendar from 'react-calendar'
 import { IoIosCalendar } from 'react-icons/io'
 
 export default function CalendarSection({ initialDate, changeDate }) {
+	// state to control the if the calendar shows
 	const [isOpenCalendar, setIsOpenCalendar] = useState(false)
 
 	return (
@@ -11,6 +12,7 @@ export default function CalendarSection({ initialDate, changeDate }) {
 			onClick={() => setIsOpenCalendar(!isOpenCalendar)}
 			onMouseLeave={() => setIsOpenCalendar(false)}
 		>
+			{/* field with the initial date, and to open the calendar */}
 			<div className='flex flex-row bg-transparent text-2xl gap-2'>
 				<IoIosCalendar
 					className='bg-transparent'

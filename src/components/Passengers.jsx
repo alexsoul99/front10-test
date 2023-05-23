@@ -1,20 +1,16 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
 import { GrAdd, GrSubtract } from 'react-icons/gr'
+import { useAmountPassangers } from '../hooks/useAmountPassengers'
 
 export default function Passangers({ passengersArr }) {
+	// state to controll if the passenger dropdown shows or not
 	const [showDropdown, setShowDropdown] = useState(false)
-	const [passengers, setPassengers] = useState(
-		passengersArr.map((value) => {
-			return value.amount
-		})
-	)
-	const [amount, setAmount] = useState(1)
 
-	useMemo(() => {
-		const newAmount = passengers.reduce((acc, curr) => acc + curr, 0)
-		setAmount(newAmount)
-	}, [passengers])
+	// getting the methodds and values from the custom hook
+	const { amount, passengers, setPassengers } = useAmountPassangers({
+		passengersArr,
+	})
 
 	return (
 		<div

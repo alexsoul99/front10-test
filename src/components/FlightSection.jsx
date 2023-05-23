@@ -1,37 +1,27 @@
-import { useState, useMemo, useContext } from 'react'
+import { useState, useContext } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { HiOutlineSwitchHorizontal } from 'react-icons/hi'
 import 'react-calendar/dist/Calendar.css'
 import { TripTypeContext } from '../context/TripType'
 import CalendarSection from './CalendarSection'
 import InputField from './InputField'
+import { useDates } from '../hooks/useDates'
 
 export default function FlightSection() {
 	// states to save the value from the inputs
 	const [departure, setDeparture] = useState('')
 	const [destiny, setDestiny] = useState('')
 
-	// states to default the flies dates and to save the selected value
-	const [departureDate, setDepartureDate] = useState('')
-	const [arrivalDate, setArrivalDate] = useState('')
-
-	// initialize todays date
-	const actualDate = new Date()
+	// get all the date's setters and info from a custom hook
+	const { arrivalDate, departureDate, setArrivalDate, setDepartureDate } =
+		useDates()
 
 	// Extraction of the trip type context to optionally render
 	const { tripType } = useContext(TripTypeContext)
 
-	// here we initialize the values of the flys dates
-	useMemo(() => {
-		setDepartureDate(`${actualDate.getDate()}/${actualDate.getMonth() + 2}`)
-	}, [])
-
-	useMemo(() => {
-		setArrivalDate(`${actualDate.getDate() + 5}/${actualDate.getMonth() + 2}`)
-	}, [])
-
 	return (
 		<div className='flex my-4 gap-2 items-start'>
+			{/* departures input */}
 			<InputField
 				isDeparture={true}
 				value={departure}
@@ -48,6 +38,8 @@ export default function FlightSection() {
 					}}
 				/>
 			</button>
+
+			{/* destiny input */}
 			<InputField
 				isDeparture={false}
 				value={destiny}
@@ -66,6 +58,8 @@ export default function FlightSection() {
 					changeDate={setArrivalDate}
 				/>
 			)}
+
+			{/* search button, it has no functionality */}
 			<button className='bg-orange-600 rounded-xl p-4 focus:outline hover:bg-slate-300 outline-none'>
 				<FaSearch
 					size={28}
