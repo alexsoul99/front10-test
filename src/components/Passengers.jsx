@@ -13,8 +13,9 @@ export default function Passangers({ passengersArr }) {
 	})
 
 	return (
-		<div
+		<button
 			onClick={() => setShowDropdown(!showDropdown)}
+			onBlur={() => setShowDropdown(false)}
 			className='relative w-72'
 		>
 			<div className='flex justify-between place-items-center py-3 text-2xl'>
@@ -24,7 +25,9 @@ export default function Passangers({ passengersArr }) {
 			{showDropdown && (
 				<ul
 					className='absolute top-0 left-0 p-4 bg-gray-50 text-xl w-[40rem] shadow-sm shadow-gray-500 z-50 border-none rounded-xl'
-					onMouseLeave={() => setShowDropdown(false)}
+					onClick={(e) => {
+						e.stopPropagation()
+					}}
 				>
 					{passengersArr.map((value, ind) => {
 						return (
@@ -36,10 +39,9 @@ export default function Passangers({ passengersArr }) {
 									{value.type}
 								</div>
 								<div className='flex gap-4'>
-									<button
+									<div
 										className='border border-gray-400 p-1 rounded-lg shadow-md shadow-gray-400'
-										onClick={(e) => {
-											e.stopPropagation()
+										onClick={() => {
 											const newArr = passengers.map((valu, indd) => {
 												if (indd === ind) return valu - 1
 												else return valu
@@ -48,14 +50,13 @@ export default function Passangers({ passengersArr }) {
 										}}
 									>
 										<GrSubtract />
-									</button>
+									</div>
 
 									<h2 className='font-extrabold text-2xl'>{passengers[ind]}</h2>
 
-									<button
+									<div
 										className='border border-gray-400 text-sky-500 p-1 rounded-lg shadow-md shadow-gray-400'
-										onClick={(e) => {
-											e.stopPropagation()
+										onClick={() => {
 											const newArr = passengers.map((valu, indd) => {
 												console.log(valu)
 												if (indd === ind) return valu + 1
@@ -65,13 +66,13 @@ export default function Passangers({ passengersArr }) {
 										}}
 									>
 										<GrAdd />
-									</button>
+									</div>
 								</div>
 							</li>
 						)
 					})}
 				</ul>
 			)}
-		</div>
+		</button>
 	)
 }

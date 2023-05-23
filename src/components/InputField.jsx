@@ -18,7 +18,7 @@ export default function InputField({ isDeparture, value, onChangeValue }) {
 				className='bg-transparent focus:outline-none text-2xl'
 				type='text'
 				value={value}
-				placeholder='Departure'
+				placeholder={`${isDeparture ? 'Departure' : 'Arrival'}`}
 				onChange={(e) => {
 					onChangeValue(e.target.value)
 				}}

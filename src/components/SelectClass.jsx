@@ -6,10 +6,11 @@ export default function SelectClass({ classesArr }) {
 	const [selected, setSelected] = useState(classesArr[0])
 
 	return (
-		<div
+		<button
 			onClick={() => {
 				setShowDropdown(!showDropdown)
 			}}
+			onBlur={() => setShowDropdown(!showDropdown)}
 			className='relative w-72 rounded-xl'
 		>
 			<div className='flex justify-between place-items-center py-3 text-2xl'>
@@ -20,7 +21,6 @@ export default function SelectClass({ classesArr }) {
 				<ul
 					id='idref'
 					className='absolute top-0 left-0 bg-gray-50 text-xl w-72 shadow-sm shadow-gray-500 rounded-xl'
-					onMouseLeave={() => setShowDropdown(!showDropdown)}
 				>
 					{classesArr.map((value) => {
 						return (
@@ -37,6 +37,6 @@ export default function SelectClass({ classesArr }) {
 					})}
 				</ul>
 			)}
-		</div>
+		</button>
 	)
 }
