@@ -7,6 +7,8 @@ export default function Passangers({ passengersArr }) {
 	// state to controll if the passenger dropdown shows or not
 	const [showDropdown, setShowDropdown] = useState(false)
 
+	const [passengerError, setPassengerError] = useState(null)
+
 	// getting the methodds and values from the custom hook
 	const { amount, passengers, setPassengers } = useAmountPassangers({
 		passengersArr,
@@ -29,7 +31,7 @@ export default function Passangers({ passengersArr }) {
 						e.stopPropagation()
 					}}
 				>
-					{passengersArr.map((value, ind) => {
+					{passengersArr.map((value, index) => {
 						return (
 							<li
 								key={value.type}
@@ -42,9 +44,15 @@ export default function Passangers({ passengersArr }) {
 									<div
 										className='border border-gray-400 p-1 rounded-lg shadow-md shadow-gray-400'
 										onClick={() => {
-											const newArr = passengers.map((valu, indd) => {
-												if (indd === ind) return valu - 1
-												else return valu
+											const newArr = passengers.map((passengerValue, ind) => {
+												if (!(amount >= 1))
+													setPassengerError('Must be at least 1 passenger')
+												if (ind === index && passengerValue > 0 && amount > 1) {
+													setPassengerError(null)
+													return passengerValue - 1
+												} else {
+													return passengerValue
+												}
 											})
 											setPassengers(newArr)
 										}}
@@ -52,15 +60,22 @@ export default function Passangers({ passengersArr }) {
 										<GrSubtract />
 									</div>
 
-									<h2 className='font-extrabold text-2xl'>{passengers[ind]}</h2>
+									<h2 className='font-extrabold text-2xl'>
+										{passengers[index]}
+									</h2>
 
 									<div
 										className='border border-gray-400 text-sky-500 p-1 rounded-lg shadow-md shadow-gray-400'
 										onClick={() => {
 											const newArr = passengers.map((valu, indd) => {
 												console.log(valu)
-												if (indd === ind) return valu + 1
-												else return valu
+												if (indd === index) {
+													setPassengerError(null)
+													return valu + 1
+												} else {
+													setPassengerError(null)
+													return valu
+												}
 											})
 											setPassengers(newArr)
 										}}
@@ -71,6 +86,13 @@ export default function Passangers({ passengersArr }) {
 							</li>
 						)
 					})}
+					{passengerError ? (
+						<span className='text-red-500 font-bold text-xl'>
+							{passengerError}
+						</span>
+					) : (
+						<span></span>
+					)}
 				</ul>
 			)}
 		</button>
