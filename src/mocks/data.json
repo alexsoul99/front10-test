@@ -16,7 +16,7 @@
 		},
 		{
 			"type": "Young people 12-17",
-			"amount": 2
+			"amount": 0
 		},
 		{
 			"type": "Childrens 2-11",
@@ -38,27 +38,5 @@
 		"Busines",
 		"First class",
 		"Mixed"
-	],
-	"destinations": [
-		{
-			"destination": "Varadero",
-			"country": "Cuba",
-			"airport": "Juan Gualberto Gómez"
-		},
-		{
-			"destination": "Miami, Fl",
-			"country": "United States of America",
-			"airport": "Miami"
-		},
-		{
-			"destination": "Barcelona",
-			"country": "Spain",
-			"airport": "Barcelona-El Prat"
-		},
-		{
-			"destination": "Brasilia",
-			"country": "Brasil",
-			"airport": "Presidente Juscelino Kubitschek"
-		}
 	]
 }

@@ -59,7 +59,7 @@ export default function FlightSection() {
 				/>
 			)}
 
-			{/* search button, it has no functionality */}
+			{/* search button, it has no functionality 'cause it wasn't povided an API */}
 			<button className='bg-orange-600 rounded-xl p-4 focus:outline hover:bg-slate-300 outline-none'>
 				<FaSearch
 					size={28}
