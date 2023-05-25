@@ -7,7 +7,7 @@ export default function SelectClass({ classesArr }) {
 
 	return (
 		<div
-			tabIndex={0}
+			tabIndex={1}
 			title='Trip class selection'
 			onClick={() => {
 				setShowDropdown(!showDropdown)
