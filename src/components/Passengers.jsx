@@ -20,6 +20,7 @@ export default function Passangers({ passengersArr }) {
 			title='Passanger selection'
 			onClick={() => setShowDropdown(!showDropdown)}
 			onBlur={() => setShowDropdown(false)}
+			onMouseLeave={() => setShowDropdown(false)}
 			className='relative w-72'
 		>
 			<div className='flex justify-between place-items-center py-3 text-2xl'>

@@ -15,6 +15,7 @@ export default function SelectTrip({ tripsArr }) {
 				setShowDropdown(!showDropdown)
 			}}
 			onBlur={() => setShowDropdown(false)}
+			onMouseLeave={() => setShowDropdown(false)}
 			className='relative w-72 rounded-xl'
 		>
 			<div className='flex justify-between place-items-center py-3 text-2xl'>

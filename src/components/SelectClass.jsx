@@ -13,6 +13,7 @@ export default function SelectClass({ classesArr }) {
 				setShowDropdown(!showDropdown)
 			}}
 			onBlur={() => setShowDropdown(!showDropdown)}
+			onMouseLeave={() => setShowDropdown(false)}
 			className='relative w-72 rounded-xl'
 		>
 			<div className='flex justify-between place-items-center py-3 text-2xl'>
