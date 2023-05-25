@@ -17,6 +17,7 @@ export default function Passangers({ passengersArr }) {
 	return (
 		<div
 			tabIndex={0}
+			title='Passanger selection'
 			onClick={() => setShowDropdown(!showDropdown)}
 			onBlur={() => setShowDropdown(false)}
 			className='relative w-72'
@@ -37,6 +38,7 @@ export default function Passangers({ passengersArr }) {
 							<li
 								key={value.type}
 								className='flex items-center justify-between m-2'
+								title={value.type}
 							>
 								<div className={' text-2xl font-semibold p-3'}>
 									{value.type}

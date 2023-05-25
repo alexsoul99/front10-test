@@ -10,6 +10,7 @@ export default function SelectTrip({ tripsArr }) {
 	return (
 		<div
 			tabIndex={0}
+			title='Trip type selection'
 			onClick={() => {
 				setShowDropdown(!showDropdown)
 			}}
@@ -36,6 +37,7 @@ export default function SelectTrip({ tripsArr }) {
 									setTripType(value)
 									setSelected(value)
 								}}
+								title={value}
 							>
 								{value}
 							</li>

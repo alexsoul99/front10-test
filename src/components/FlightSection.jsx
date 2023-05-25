@@ -9,7 +9,7 @@ import { useDates } from '../hooks/useDates'
 
 export default function FlightSection() {
 	// states to save the value from the inputs
-	const [departure, setDeparture] = useState('')
+	const [origin, setOrigin] = useState('')
 	const [destiny, setDestiny] = useState('')
 
 	// get all the date's setters and info from a custom hook
@@ -21,19 +21,22 @@ export default function FlightSection() {
 
 	return (
 		<div className='flex my-4 gap-2 items-start'>
-			{/* departures input */}
+			{/* origin input */}
 			<InputField
-				isDeparture={true}
-				value={departure}
-				onChangeValue={setDeparture}
+				isOrigin={true}
+				value={origin}
+				onChangeValue={setOrigin}
 			/>
-			<button className='bg-gray-200 rounded-xl p-4 focus:outline hover:bg-slate-300'>
+			<button
+				className='bg-gray-200 rounded-xl p-4 focus:outline hover:bg-slate-300'
+				title='Switch origin / destination'
+			>
 				<HiOutlineSwitchHorizontal
 					size={28}
 					className='bg-transparent'
 					onClick={() => {
-						const newDestiny = departure
-						setDeparture(destiny)
+						const newDestiny = origin
+						setOrigin(destiny)
 						setDestiny(newDestiny)
 					}}
 				/>
@@ -41,7 +44,7 @@ export default function FlightSection() {
 
 			{/* destiny input */}
 			<InputField
-				isDeparture={false}
+				isOrigin={false}
 				value={destiny}
 				onChangeValue={setDestiny}
 			/>
@@ -49,6 +52,7 @@ export default function FlightSection() {
 			<CalendarSection
 				initialDate={departureDate}
 				changeDate={setDepartureDate}
+				title='Departure date selection'
 			/>
 			{tripType === 'One-way' ? (
 				''
@@ -56,11 +60,15 @@ export default function FlightSection() {
 				<CalendarSection
 					initialDate={arrivalDate}
 					changeDate={setArrivalDate}
+					title='Arrival date selection'
 				/>
 			)}
 
 			{/* search button, it has no functionality 'cause it wasn't povided an API */}
-			<button className='bg-orange-600 rounded-xl p-4 focus:outline hover:bg-slate-300 outline-none'>
+			<button
+				className='bg-orange-600 rounded-xl p-4 focus:outline hover:bg-slate-300 outline-none'
+				title='Search flight'
+			>
 				<FaSearch
 					size={28}
 					className='bg-transparent text-white'

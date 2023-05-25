@@ -8,6 +8,7 @@ export default function SelectClass({ classesArr }) {
 	return (
 		<div
 			tabIndex={0}
+			title='Trip class selection'
 			onClick={() => {
 				setShowDropdown(!showDropdown)
 			}}
@@ -31,6 +32,7 @@ export default function SelectClass({ classesArr }) {
 								}`}
 								key={value}
 								onClick={() => setSelected(value)}
+								title={value}
 							>
 								{value}
 							</li>
