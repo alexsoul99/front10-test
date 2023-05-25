@@ -7,16 +7,21 @@ export default function SelectClass({ classesArr }) {
 
 	return (
 		<div
-			tabIndex={1}
+			role='button'
+			tabIndex={0}
 			title='Trip class selection'
 			onClick={() => {
 				setShowDropdown(!showDropdown)
 			}}
+			onKeyDown={(e) => {
+				if (e.key === 'Enter') {
+					setShowDropdown(true)
+				} else if (e.key === 'Escape') setShowDropdown(false)
+			}}
 			onBlur={() => setShowDropdown(!showDropdown)}
-			onMouseLeave={() => setShowDropdown(false)}
 			className='relative w-72 rounded-xl'
 		>
-			<div className='flex justify-between place-items-center py-3 text-2xl'>
+			<div className='flex justify-between place-items-center p-3 text-2xl'>
 				{selected}
 				<IoIosArrowDown size={15} />
 			</div>

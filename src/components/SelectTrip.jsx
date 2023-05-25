@@ -9,16 +9,21 @@ export default function SelectTrip({ tripsArr }) {
 
 	return (
 		<div
+			role='button'
 			tabIndex={0}
 			title='Trip type selection'
 			onClick={() => {
 				setShowDropdown(!showDropdown)
 			}}
+			onKeyDown={(e) => {
+				if (e.key === 'Enter') {
+					setShowDropdown(true)
+				} else if (e.key === 'Escape') setShowDropdown(false)
+			}}
 			onBlur={() => setShowDropdown(false)}
-			onMouseLeave={() => setShowDropdown(false)}
 			className='relative w-72 rounded-xl'
 		>
-			<div className='flex justify-between place-items-center py-3 text-2xl'>
+			<div className='flex justify-between place-items-center p-3 text-2xl'>
 				{selected}
 				<IoIosArrowDown size={15} />
 			</div>

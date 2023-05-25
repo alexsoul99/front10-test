@@ -18,6 +18,7 @@ export default function InputField({ isOrigin, value, onChangeValue }) {
 				/>
 			)}
 			<input
+				tabIndex={0}
 				className='bg-transparent focus:outline-none text-2xl'
 				type='text'
 				value={value}

@@ -19,6 +19,12 @@ export default function FlightSection() {
 	// Extraction of the trip type context to optionally render
 	const { tripType } = useContext(TripTypeContext)
 
+	const changeDestination = () => {
+		const newDestiny = origin
+		setOrigin(destiny)
+		setDestiny(newDestiny)
+	}
+
 	return (
 		<div className='flex my-4 gap-2 items-start'>
 			{/* origin input */}
@@ -30,15 +36,14 @@ export default function FlightSection() {
 			<button
 				className='bg-gray-200 rounded-xl p-4 focus:outline hover:bg-slate-300'
 				title='Switch origin / destination'
+				onClick={changeDestination}
+				onKeyDown={(e) => {
+					e.key === 'Enter' && changeDestination
+				}}
 			>
 				<HiOutlineSwitchHorizontal
 					size={28}
 					className='bg-transparent'
-					onClick={() => {
-						const newDestiny = origin
-						setOrigin(destiny)
-						setDestiny(newDestiny)
-					}}
 				/>
 			</button>
 
@@ -66,7 +71,8 @@ export default function FlightSection() {
 
 			{/* search button, it has no functionality 'cause it wasn't povided an API */}
 			<button
-				className='bg-orange-600 rounded-xl p-4 focus:outline hover:bg-slate-300 outline-none'
+				tabIndex={0}
+				className='bg-orange-600 rounded-xl p-4 hover:bg-slate-300'
 				title='Search flight'
 			>
 				<FaSearch

@@ -16,14 +16,19 @@ export default function Passangers({ passengersArr }) {
 
 	return (
 		<div
+			role='button'
 			tabIndex={0}
 			title='Passanger selection'
 			onClick={() => setShowDropdown(!showDropdown)}
 			onBlur={() => setShowDropdown(false)}
-			onMouseLeave={() => setShowDropdown(false)}
-			className='relative w-72'
+			onKeyDown={(e) => {
+				if (e.key === 'Enter') {
+					setShowDropdown(true)
+				} else if (e.key === 'Escape') setShowDropdown(false)
+			}}
+			className='relative w-72 rounded-xl'
 		>
-			<div className='flex justify-between place-items-center py-3 text-2xl'>
+			<div className='flex justify-between place-items-center p-3 text-2xl'>
 				{amount === 1 ? amount + ` adult` : amount + ` passengers`}
 				<IoIosArrowDown size={15} />
 			</div>
@@ -46,10 +51,10 @@ export default function Passangers({ passengersArr }) {
 								</div>
 								<div className='flex gap-4'>
 									<div
+										role='button'
 										className='border border-gray-400 p-1 rounded-lg shadow-md shadow-gray-400'
 										onClick={() => {
 											const newArr = passengers.map((passengerValue, ind) => {
-												// if (passengers[0] > 1 || passengers[1] > 0) alert('wow')
 												if (ind === index) {
 													if (passengerValue === 0) return passengerValue
 													if (amount === 1) {
@@ -73,6 +78,7 @@ export default function Passangers({ passengersArr }) {
 									</h2>
 
 									<div
+										role='button'
 										className='border border-gray-400 text-sky-500 p-1 rounded-lg shadow-md shadow-gray-400'
 										onClick={() => {
 											const newArr = passengers.map((valu, indd) => {

@@ -10,8 +10,16 @@ export default function CalendarSection({ initialDate, changeDate, title }) {
 		<div
 			className='flex flex-col text-xl gap-2 items-start bg-gray-200 rounded-xl p-4 w-72 hover:bg-slate-300'
 			onClick={() => setIsOpenCalendar(!isOpenCalendar)}
-			onMouseLeave={() => setIsOpenCalendar(false)}
+			onBlur={() => setIsOpenCalendar(false)}
+			onKeyDown={(e) => {
+				if (e.key === 'Enter') {
+					setIsOpenCalendar(true)
+				} else if (e.key === 'Escape') {
+					setIsOpenCalendar(false)
+				}
+			}}
 			title={title}
+			tabIndex={0}
 		>
 			{/* field with the initial date, and to open the calendar */}
 			<div className='flex flex-row bg-transparent text-2xl gap-2'>
