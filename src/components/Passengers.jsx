@@ -15,7 +15,8 @@ export default function Passangers({ passengersArr }) {
 	})
 
 	return (
-		<button
+		<div
+			tabIndex={0}
 			onClick={() => setShowDropdown(!showDropdown)}
 			onBlur={() => setShowDropdown(false)}
 			className='relative w-72'
@@ -26,7 +27,7 @@ export default function Passangers({ passengersArr }) {
 			</div>
 			{showDropdown && (
 				<ul
-					className='absolute top-0 left-0 p-4 bg-gray-50 text-xl w-[40rem] shadow-sm shadow-gray-500 z-50 border-none rounded-xl'
+					className='absolute top-0 left-0 flex flex-col p-4 bg-gray-50 text-xl w-[40rem] shadow-sm shadow-gray-500 z-50 border-none rounded-xl'
 					onClick={(e) => {
 						e.stopPropagation()
 					}}
@@ -45,9 +46,13 @@ export default function Passangers({ passengersArr }) {
 										className='border border-gray-400 p-1 rounded-lg shadow-md shadow-gray-400'
 										onClick={() => {
 											const newArr = passengers.map((passengerValue, ind) => {
-												if (!(amount >= 1))
-													setPassengerError('Must be at least 1 passenger')
-												if (ind === index && passengerValue > 0 && amount > 1) {
+												// if (passengers[0] > 1 || passengers[1] > 0) alert('wow')
+												if (ind === index) {
+													if (passengerValue === 0) return passengerValue
+													if (amount === 1) {
+														setPassengerError('Must be at least 1 passenger')
+														return passengerValue
+													}
 													setPassengerError(null)
 													return passengerValue - 1
 												} else {
@@ -68,7 +73,6 @@ export default function Passangers({ passengersArr }) {
 										className='border border-gray-400 text-sky-500 p-1 rounded-lg shadow-md shadow-gray-400'
 										onClick={() => {
 											const newArr = passengers.map((valu, indd) => {
-												console.log(valu)
 												if (indd === index) {
 													setPassengerError(null)
 													return valu + 1
@@ -87,7 +91,7 @@ export default function Passangers({ passengersArr }) {
 						)
 					})}
 					{passengerError ? (
-						<span className='text-red-500 font-bold text-xl'>
+						<span className='text-red-500 font-bold text-xl self-center'>
 							{passengerError}
 						</span>
 					) : (
@@ -95,6 +99,6 @@ export default function Passangers({ passengersArr }) {
 					)}
 				</ul>
 			)}
-		</button>
+		</div>
 	)
 }

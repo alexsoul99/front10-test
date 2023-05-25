@@ -6,7 +6,8 @@ export default function SelectClass({ classesArr }) {
 	const [selected, setSelected] = useState(classesArr[0])
 
 	return (
-		<button
+		<div
+			tabIndex={0}
 			onClick={() => {
 				setShowDropdown(!showDropdown)
 			}}
@@ -37,6 +38,6 @@ export default function SelectClass({ classesArr }) {
 					})}
 				</ul>
 			)}
-		</button>
+		</div>
 	)
 }

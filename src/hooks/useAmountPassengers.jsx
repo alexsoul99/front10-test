@@ -6,12 +6,10 @@ export function useAmountPassangers({ passengersArr }) {
 			return value.amount
 		})
 	)
-	const [amount, setAmount] = useState(1)
 
-	useMemo(() => {
-		const newAmount = passengers.reduce((acc, curr) => acc + curr, 0)
-		setAmount(newAmount)
+	const amount = useMemo(() => {
+		return passengers.reduce((acc, curr) => acc + curr, 0)
 	}, [passengers])
 
-	return { passengers, setPassengers, amount, setAmount }
+	return { passengers, setPassengers, amount }
 }

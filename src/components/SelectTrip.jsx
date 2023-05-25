@@ -8,7 +8,8 @@ export default function SelectTrip({ tripsArr }) {
 	const [selected, setSelected] = useState(tripsArr[0])
 
 	return (
-		<button
+		<div
+			tabIndex={0}
 			onClick={() => {
 				setShowDropdown(!showDropdown)
 			}}
@@ -42,6 +43,6 @@ export default function SelectTrip({ tripsArr }) {
 					})}
 				</ul>
 			)}
-		</button>
+		</div>
 	)
 }
