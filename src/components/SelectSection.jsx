@@ -1,21 +1,42 @@
-import data from '../mocks/data.json'
 import SelectClass from './SelectClass'
 import Passengers from './Passengers'
 import SelectTrip from './SelectTrip'
 
-export default function SelectSection() {
-	const { flightType, passengers, travelClass } = data
-
+export default function SelectSection({
+	selectedClass,
+	setSelectedClass,
+	selectedFlightType,
+	setSelectedFlightType,
+	passengersAmount,
+	passengersTypes,
+	passengersTypesAmount,
+	setPassengersTypesAmount,
+	flightTypeArr,
+	travelClassArr,
+}) {
 	return (
 		<section className='flex gap-4'>
 			<div className='bg-gray-50 text-gray-600 text-xl rounded-lg p-2'>
-				<SelectTrip tripsArr={flightType} />
+				<SelectTrip
+					flightTypeArr={flightTypeArr}
+					selectedFlight={selectedFlightType}
+					setSelectedFlightType={setSelectedFlightType}
+				/>
 			</div>
 			<div className='bg-gray-50 text-gray-600 text-xl rounded-lg p-2'>
-				<Passengers passengersArr={passengers} />
+				<Passengers
+					passengersTypes={passengersTypes}
+					setPassengersTypesAmount={setPassengersTypesAmount}
+					passengersAmount={passengersAmount}
+					passengersTypesAmount={passengersTypesAmount}
+				/>
 			</div>
 			<div className='bg-gray-50 text-gray-600 text-xl rounded-lg p-2'>
-				<SelectClass classesArr={travelClass} />
+				<SelectClass
+					travelClassArr={travelClassArr}
+					selectedClass={selectedClass}
+					setSelectedClass={setSelectedClass}
+				/>
 			</div>
 		</section>
 	)

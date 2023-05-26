@@ -1,18 +1,16 @@
 import { useState } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
 import { GrAdd, GrSubtract } from 'react-icons/gr'
-import { useAmountPassangers } from '../hooks/useAmountPassengers'
 
-export default function Passangers({ passengersArr }) {
+export default function Passengers({
+	passengersTypes,
+	passengersAmount,
+	passengersTypesAmount,
+	setPassengersTypesAmount,
+}) {
 	// state to controll if the passenger dropdown shows or not
 	const [showDropdown, setShowDropdown] = useState(false)
-
 	const [passengerError, setPassengerError] = useState(null)
-
-	// getting the methodds and values from the custom hook
-	const { amount, passengers, setPassengers } = useAmountPassangers({
-		passengersArr,
-	})
 
 	return (
 		<div
@@ -29,7 +27,9 @@ export default function Passangers({ passengersArr }) {
 			className='relative w-72 rounded-xl'
 		>
 			<div className='flex justify-between place-items-center p-3 text-2xl'>
-				{amount === 1 ? amount + ` adult` : amount + ` passengers`}
+				{passengersAmount === 1
+					? passengersAmount + ` adult`
+					: passengersAmount + ` passengers`}
 				<IoIosArrowDown size={15} />
 			</div>
 			{showDropdown && (
@@ -39,7 +39,7 @@ export default function Passangers({ passengersArr }) {
 						e.stopPropagation()
 					}}
 				>
-					{passengersArr.map((value, index) => {
+					{passengersTypes.map((value, index) => {
 						return (
 							<li
 								key={value.type}
@@ -54,43 +54,51 @@ export default function Passangers({ passengersArr }) {
 										role='button'
 										className='border border-gray-400 p-1 rounded-lg shadow-md shadow-gray-400'
 										onClick={() => {
-											const newArr = passengers.map((passengerValue, ind) => {
-												if (ind === index) {
-													if (passengerValue === 0) return passengerValue
-													if (amount === 1) {
-														setPassengerError('Must be at least 1 passenger')
+											const newArr = passengersTypesAmount.map(
+												(passengerValue, ind) => {
+													if (ind === index) {
+														if (passengerValue === 0) return passengerValue
+														if (passengersAmount === 1) {
+															setPassengerError('Must be at least 1 passenger')
+															return passengerValue
+														}
+														setPassengerError(null)
+														return passengerValue - 1
+													} else {
 														return passengerValue
 													}
-													setPassengerError(null)
-													return passengerValue - 1
-												} else {
-													return passengerValue
 												}
-											})
-											setPassengers(newArr)
+											)
+											setPassengersTypesAmount(newArr)
 										}}
 									>
 										<GrSubtract />
 									</div>
 
 									<h2 className='font-extrabold text-2xl'>
-										{passengers[index]}
+										{passengersTypesAmount[index]}
 									</h2>
 
 									<div
 										role='button'
 										className='border border-gray-400 text-sky-500 p-1 rounded-lg shadow-md shadow-gray-400'
 										onClick={() => {
-											const newArr = passengers.map((valu, indd) => {
-												if (indd === index) {
-													setPassengerError(null)
-													return valu + 1
-												} else {
-													setPassengerError(null)
-													return valu
+											const newArr = passengersTypesAmount.map(
+												(passengerValue, ind) => {
+													if (ind === index) {
+														if (passengersAmount === 16) {
+															setPassengerError('No more than 16 passengers')
+															return passengerValue
+														}
+														setPassengerError(null)
+														return passengerValue + 1
+													} else {
+														setPassengerError(null)
+														return passengerValue
+													}
 												}
-											})
-											setPassengers(newArr)
+											)
+											setPassengersTypesAmount(newArr)
 										}}
 									>
 										<GrAdd />

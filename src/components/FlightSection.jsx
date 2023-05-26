@@ -1,28 +1,23 @@
-import { useState, useContext } from 'react'
-import { FaSearch } from 'react-icons/fa'
 import { HiOutlineSwitchHorizontal } from 'react-icons/hi'
 import 'react-calendar/dist/Calendar.css'
-import { TripTypeContext } from '../context/TripType'
 import CalendarSection from './CalendarSection'
 import InputField from './InputField'
-import { useDates } from '../hooks/useDates'
 
-export default function FlightSection() {
-	// states to save the value from the inputs
-	const [origin, setOrigin] = useState('')
-	const [destiny, setDestiny] = useState('')
-
-	// get all the date's setters and info from a custom hook
-	const { arrivalDate, departureDate, setArrivalDate, setDepartureDate } =
-		useDates()
-
-	// Extraction of the trip type context to optionally render
-	const { tripType } = useContext(TripTypeContext)
-
+export default function FlightSection({
+	tripType,
+	origin,
+	destiny,
+	setOrigin,
+	setDestiny,
+	arrivalDate,
+	departureDate,
+	setArrivalDate,
+	setDepartureDate,
+}) {
 	const changeDestination = () => {
 		const newDestiny = origin
-		setOrigin(destiny)
-		setDestiny(newDestiny)
+		const newOrigin = destiny
+		return setDestiny(newDestiny), setOrigin(newOrigin)
 	}
 
 	return (
@@ -68,18 +63,6 @@ export default function FlightSection() {
 					title='Arrival date selection'
 				/>
 			)}
-
-			{/* search button, it has no functionality 'cause it wasn't povided an API */}
-			<button
-				tabIndex={0}
-				className='bg-orange-600 rounded-xl p-4 hover:bg-slate-300'
-				title='Search flight'
-			>
-				<FaSearch
-					size={28}
-					className='bg-transparent text-white'
-				/>
-			</button>
 		</div>
 	)
 }

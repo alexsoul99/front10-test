@@ -1,15 +1,15 @@
 import { useState, useMemo } from 'react'
 
-export function useAmountPassangers({ passengersArr }) {
-	const [passengers, setPassengers] = useState(
-		passengersArr.map((value) => {
+export function useAmountPassangers({ passengersTypes }) {
+	const [passengersTypesAmount, setPassengersTypesAmount] = useState(
+		passengersTypes.map((value) => {
 			return value.amount
 		})
 	)
 
-	const amount = useMemo(() => {
-		return passengers.reduce((acc, curr) => acc + curr, 0)
-	}, [passengers])
+	const passengerAmount = useMemo(() => {
+		return passengersTypesAmount.reduce((acc, curr) => acc + curr, 0)
+	}, [passengersTypesAmount])
 
-	return { passengers, setPassengers, amount }
+	return { passengersTypesAmount, setPassengersTypesAmount, passengerAmount }
 }

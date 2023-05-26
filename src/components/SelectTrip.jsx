@@ -1,11 +1,12 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
-import { TripTypeContext } from '../context/TripType'
 
-export default function SelectTrip({ tripsArr }) {
+export default function SelectTrip({
+	flightTypeArr,
+	selectedFlight,
+	setSelectedFlightType,
+}) {
 	const [showDropdown, setShowDropdown] = useState(false)
-	const { setTripType } = useContext(TripTypeContext)
-	const [selected, setSelected] = useState(tripsArr[0])
 
 	return (
 		<div
@@ -24,7 +25,7 @@ export default function SelectTrip({ tripsArr }) {
 			className='relative w-72 rounded-xl'
 		>
 			<div className='flex justify-between place-items-center p-3 text-2xl'>
-				{selected}
+				{selectedFlight}
 				<IoIosArrowDown size={15} />
 			</div>
 			{showDropdown && (
@@ -32,16 +33,15 @@ export default function SelectTrip({ tripsArr }) {
 					id='idref'
 					className='absolute top-0 left-0 bg-gray-50 text-xl w-72 shadow-sm shadow-gray-500 rounded-xl'
 				>
-					{tripsArr.map((value) => {
+					{flightTypeArr.map((value) => {
 						return (
 							<li
 								className={`hover:bg-gray-300 p-3 text-2xl ${
-									selected === value ? 'bg-gray-300 font-bold' : ''
+									selectedFlight === value ? 'bg-gray-300 font-bold' : ''
 								}`}
 								key={value}
 								onClick={() => {
-									setTripType(value)
-									setSelected(value)
+									setSelectedFlightType(value)
 								}}
 								title={value}
 							>

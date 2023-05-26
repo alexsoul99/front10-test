@@ -5,7 +5,7 @@
 		"Multi-Destination",
 		"Trip-generator"
 	],
-	"passengers": [
+	"passengersTypes": [
 		{
 			"type": "Adults +18",
 			"amount": 1
