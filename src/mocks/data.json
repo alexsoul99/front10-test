@@ -38,5 +38,55 @@
 		"Busines",
 		"First class",
 		"Mixed"
+	],
+	"cities": [
+		{
+			"photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsqRqSLBMxyNvBxeQ0KtsKFBdczh7XgG9qcgzYJS2_BZz30KMNDMrHMj-Jys25ucStQLM&usqp=CAU",
+			"country": "France",
+			"city": "Paris",
+			"airport": "Charles de Gaulle Airport"
+		},
+		{
+			"photo": "https://a.travel-assets.com/findyours-php/viewfinder/images/res40/495000/495511-barcelona-el-prat-airport-bcn.jpg",
+			"country": "Spain",
+			"city": "Barcelona",
+			"airport": "Barcelona-El Prat Airport"
+		},
+		{
+			"photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH1FsC3mSKQK4mjMUbY1asDbsItckp1LjodTAWYMK_7tknh1Vs1SQRvjpZ5EXyNJJekqA&usqp=CAU",
+			"country": "Italy",
+			"city": "Venice",
+			"airport": "Marco Polo Airport"
+		},
+		{
+			"photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7EqDegR8C1DI5AUDn-ByevRPz1gZOG8FQnUeZtLyW6EAZwdh9prnnpIWfAgqktEoms4E&usqp=CAU",
+			"country": "Japan",
+			"city": "Tokyo",
+			"airport": "Narita International Airport"
+		},
+		{
+			"photo": "https://image.nuevayork.es/wp-content/uploads/2020/03/New-York-Helicopter-Tour-2.eric_both.bottom_right.jpg.webp",
+			"country": "United States",
+			"city": "New York City",
+			"airport": "John F. Kennedy International Airport"
+		},
+		{
+			"photo": "https://dingoos.com/wp-content/uploads/2017/11/estudiar-en-sydney-1.jpg",
+			"country": "Australia",
+			"city": "Sydney",
+			"airport": "Kingsford Smith International Airport"
+		},
+		{
+			"photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Mont_St_Michel_3%2C_Brittany%2C_France_-_July_2011.jpg/800px-Mont_St_Michel_3%2C_Brittany%2C_France_-_July_2011.jpg",
+			"country": "France",
+			"city": "Mont Saint Michel",
+			"airport": "Rennes Bretagne Airport"
+		},
+		{
+			"photo": "https://images.squarespace-cdn.com/content/v1/5d1a28b95422a10001b1aada/6f845a88-2a59-4713-a8eb-8c86ed7e15f9/MexicoCity-BellasArtes.jpg",
+			"country": "Mexico",
+			"city": "Mexico City",
+			"airport": "Mexico City International Airport"
+		}
 	]
 }

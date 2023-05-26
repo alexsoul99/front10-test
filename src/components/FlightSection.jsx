@@ -16,8 +16,8 @@ export default function FlightSection({
 }) {
 	const changeDestination = () => {
 		const newDestiny = origin
-		const newOrigin = destiny
-		return setDestiny(newDestiny), setOrigin(newOrigin)
+		setOrigin(destiny)
+		setDestiny(newDestiny)
 	}
 
 	return (

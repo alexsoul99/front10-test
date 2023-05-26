@@ -21,6 +21,12 @@ export default function App() {
 	const [selectedFlightType, setSelectedFlightType] = useState(flightType[0])
 	const [origin, setOrigin] = useState('')
 	const [destiny, setDestiny] = useState('')
+	// const [flightState, setFlightState] = useState({
+	// 	origin: '',
+	// 	destiny: '',
+	// 	class: travelClass[0],
+	// 	flightType: flightType[0],
+	// })
 
 	// get all the date's setters and info from a custom hook
 	const { arrivalDate, departureDate, setArrivalDate, setDepartureDate } =
