@@ -26,7 +26,7 @@ export default function FlightSection({
 			<InputField
 				isOrigin={true}
 				value={origin}
-				onChangeValue={setOrigin}
+				setValue={setOrigin}
 			/>
 			<button
 				className='bg-gray-200 rounded-xl p-4 focus:outline hover:bg-slate-300'
@@ -46,7 +46,7 @@ export default function FlightSection({
 			<InputField
 				isOrigin={false}
 				value={destiny}
-				onChangeValue={setDestiny}
+				setValue={setDestiny}
 			/>
 
 			<CalendarSection

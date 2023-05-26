@@ -71,6 +71,12 @@
 			"airport": "John F. Kennedy International Airport"
 		},
 		{
+			"photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi_La5VQP7NpaXVgB-g2fNOobgIuskAsQRihAh4d_ROr_jhtVzFZfTl6D_qdENgKuwsTw&usqp=CAU",
+			"country": "United States",
+			"city": "Miami",
+			"airport": "Miami International Airport"
+		},
+		{
 			"photo": "https://dingoos.com/wp-content/uploads/2017/11/estudiar-en-sydney-1.jpg",
 			"country": "Australia",
 			"city": "Sydney",

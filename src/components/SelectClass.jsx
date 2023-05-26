@@ -22,7 +22,7 @@ export default function SelectClass({
 				} else if (e.key === 'Escape') setShowDropdown(false)
 			}}
 			onBlur={() => setShowDropdown(!showDropdown)}
-			className='relative w-72 rounded-xl'
+			className='relative w-72 rounded-xl z-40'
 		>
 			<div className='flex justify-between place-items-center p-3 text-2xl'>
 				{selectedClass}

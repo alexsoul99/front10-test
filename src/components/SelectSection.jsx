@@ -15,7 +15,7 @@ export default function SelectSection({
 	travelClassArr,
 }) {
 	return (
-		<section className='flex gap-4'>
+		<section className='flex gap-4 z-50'>
 			<div className='bg-gray-50 text-gray-600 text-xl rounded-lg p-2'>
 				<SelectTrip
 					flightTypeArr={flightTypeArr}
