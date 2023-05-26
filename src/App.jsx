@@ -26,7 +26,7 @@ export default function App() {
 	const { arrivalDate, departureDate, setArrivalDate, setDepartureDate } =
 		useDates()
 
-	// function to sende the data to the backend
+	// function to send the data to the backend
 	const handleSubmit = () => {
 		if (origin | (destiny === '')) return alert('cant submit empty fields')
 		if (selectedFlightType === 'One-way') {
@@ -47,7 +47,11 @@ export default function App() {
 					Search hundreds of travel sites at once
 				</h1>
 			</header>
-			<form>
+			<form
+				onSubmit={(e) => {
+					e.preventDefault()
+				}}
+			>
 				<SelectSection
 					selectedClass={selectedClass}
 					setSelectedClass={setSelectedClass}

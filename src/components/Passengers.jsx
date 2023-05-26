@@ -87,7 +87,9 @@ export default function Passengers({
 												(passengerValue, ind) => {
 													if (ind === index) {
 														if (passengersAmount === 16) {
-															setPassengerError('No more than 16 passengers')
+															setPassengerError(
+																"Can't be more than 16 passengers"
+															)
 															return passengerValue
 														}
 														setPassengerError(null)
@@ -107,12 +109,11 @@ export default function Passengers({
 							</li>
 						)
 					})}
-					{passengerError ? (
+					{console.log(passengerError)}
+					{passengerError && (
 						<span className='text-red-500 font-bold text-xl self-center'>
 							{passengerError}
 						</span>
-					) : (
-						<span></span>
 					)}
 				</ul>
 			)}
